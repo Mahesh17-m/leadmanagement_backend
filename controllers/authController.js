@@ -23,7 +23,7 @@ const register = async (req, res) => {
       res.cookie('jwt', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
+        sameSite: 'None',
         maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
       });
 
@@ -51,7 +51,7 @@ const login = async (req, res) => {
       res.cookie('jwt', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
+        sameSite: 'None',
         maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
       });
 
@@ -75,7 +75,7 @@ const logout = (req, res) => {
     httpOnly: true,
     expires: new Date(0),
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict'
+    sameSite: 'None'
   });
   res.status(200).json({ message: 'Logged out successfully' });
 };
